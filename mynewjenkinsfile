@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    stages {
+        stage("cleanup") {
+            steps {
+                sh "echodoing cleanup"
+                cleanWs()
+
+            }
+        }
+        stage("checkoutSCM") {
+            steps {
+                git branch 'main', credentialsId: 'shiva-github', url: 'https://github.com/shivadoc1/mynewrepo.git'
+
+            }
+        }
+        stage("build") {
+            steps {
+                sh "echo 'buildingcode'"
+
+            }
+        }
+        stage("test") {
+            steps {
+                sh "'echo running code test'"
+
+            }
+        }
+        stage("deploy and run") {
+            steps {
+                sh "echo 'running code - deploy and run'"
+                sh "./mynewtestfile.sh"
+
+            }
+        }
+    }
+}
