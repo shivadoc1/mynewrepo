@@ -10,7 +10,7 @@ pipeline {
         }
         stage("checkoutSCM") {
             steps {
-                git branch 'main', credentialsId: 'shiva-github', url: 'https://github.com/shivadoc1/mynewrepo.git'
+                git branch 'mynewbranch', credentialsId: 'shiva-github', url: 'https://github.com/shivadoc1/mynewrepo.git'
 
             }
         }
