@@ -3,14 +3,14 @@ pipeline {
     stages {
         stage("cleanup") {
             steps {
-                sh "echodoing cleanup"
+                sh "echo doing cleanup"
                 cleanWs()
 
             }
         }
         stage("checkoutSCM") {
             steps {
-                git branch 'mynewbranch', credentialsId: 'shiva-github', url: 'https://github.com/shivadoc1/mynewrepo.git'
+                git branch: 'mynewbranch', credentialsId: 'shiva-github', url: 'https://github.com/shivadoc1/mynewrepo.git'
 
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         }
         stage("test") {
             steps {
-                sh "'echo running code test'"
+                sh "echo 'running code test'"
 
             }
         }
